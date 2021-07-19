@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FruitController;
+use App\Http\Controllers\VegetableController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('fruits', FruitController::class);
+Route::resource('vegetables', VegetableController::class);
