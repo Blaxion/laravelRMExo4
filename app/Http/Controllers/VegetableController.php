@@ -36,7 +36,7 @@ class VegetableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 
     }
 
     /**
@@ -47,7 +47,8 @@ class VegetableController extends Controller
      */
     public function show(Vegetable $vegetable)
     {
-        //
+        $show = $vegetable;
+        return view('pages.show.show',compact('show'));
     }
 
     /**

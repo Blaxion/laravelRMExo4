@@ -48,7 +48,8 @@ class FruitController extends Controller
      */
     public function show(Fruit $fruit)
     {
-        //
+        $show = $fruit;
+        return view('pages.show.show',compact('show'));
     }
 
     /**

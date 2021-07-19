@@ -6,6 +6,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Utilities</th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,7 @@
                     <th scope="row">{{ $fruit->id }}</th>
                     <td>{{ $fruit->name }}</td>
                     <td>{{ $fruit->quantity }}</td>
+                    <td><a href="fruits/{{$fruit->id}}" class="btn btn-info">SHOW</a></td>
                 </tr>
             @endforeach
         </tbody>
