@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vegetable;
+use App\Models\vegetable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class VegetableController extends Controller
@@ -17,7 +17,11 @@ class VegetableController extends Controller
         $vegetables = DB::table('vegetables')->orderBy('quantity','asc')->get();
         return view('pages.vegetables',compact('vegetables'));
     }
-
+    public function indexback()
+    {
+        $vegetables = DB::table('vegetables')->orderBy('quantity','asc')->get();
+        return view('pages.back.vegetables',compact('vegetables'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +29,7 @@ class VegetableController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.back.create.create');
     }
 
     /**
@@ -36,13 +40,17 @@ class VegetableController extends Controller
      */
     public function store(Request $request)
     {
-        // 
+        $store = new Vegetable;
+        $store->name=$request->name;
+        $store->quantity=$request->quantity;
+        $store->save();
+        return redirect('/setvegetables');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Vegetable  $vegetable
+     * @param  \App\Models\vegetable  $vegetable
      * @return \Illuminate\Http\Response
      */
     public function show(Vegetable $vegetable)
@@ -82,6 +90,7 @@ class VegetableController extends Controller
      */
     public function destroy(Vegetable $vegetable)
     {
-        //
+        $vegetable->delete();
+        return redirect()->back();
     }
 }

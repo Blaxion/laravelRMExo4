@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.indexback')
 @section('main')
     <table class="table">
         <thead>
@@ -16,11 +16,17 @@
                     <td>{{ $fruit->name }}</td>
                     <td>{{ $fruit->quantity }}</td>
                     <td>
-                        <a href="/fruits/{{$fruit->id}}" class="btn btn-info">SHOW</a>
+                        <a href="fruits/{{$fruit->id}}" class="btn btn-info">SHOW</a>
                         
+                        <form action="/fruits/{{$fruit->id}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type='submit'class="btn btn-danger">DELETE</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="fruits/create" class="btn btn-info text-white">CREATE</a>
 @endsection

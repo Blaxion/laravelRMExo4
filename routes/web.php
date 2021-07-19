@@ -21,9 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/setfruits',[FruitController::class,'indexback']);
+Route::get('/setvegetables',[VegetableController::class,'indexback']);
 
 Route::post('/adminAuth',[administratorController::class,'authentification']);
-Route::resource('admin', administratorController::class);
+
 
 
 Route::resource('fruits', FruitController::class);

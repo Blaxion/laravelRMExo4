@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('layout.indexback')
 @section('main')
 <table class="table">
     <thead>
@@ -17,9 +17,15 @@
                 <td>{{ $vegetable->quantity }}</td>
                 <td>
                     <a href="vegetables/{{$vegetable->id}}" class="btn btn-info">SHOW</a>
+                    <form action="/vegetables/{{$vegetable->id}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
+<a href="vegetables/create" class="btn btn-info text-white">CREATE</a>
 @endsection

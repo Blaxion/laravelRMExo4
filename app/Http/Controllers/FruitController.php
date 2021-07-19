@@ -18,6 +18,11 @@ class FruitController extends Controller
         $fruits = DB::table('fruits')->orderBy('quantity','asc')->get();
         return view('pages.fruits',compact('fruits'));
     }
+    public function indexback()
+    {
+        $fruits = DB::table('fruits')->orderBy('quantity','asc')->get();
+        return view('pages.back.fruits',compact('fruits'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +31,7 @@ class FruitController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.back.create.create');
     }
 
     /**
@@ -37,7 +42,11 @@ class FruitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Fruit;
+        $store->name=$request->name;
+        $store->quantity=$request->quantity;
+        $store->save();
+        return redirect('/setfruits');
     }
 
     /**
@@ -83,6 +92,7 @@ class FruitController extends Controller
      */
     public function destroy(Fruit $fruit)
     {
-        //
+        $fruit->delete();
+        return redirect()->back();
     }
 }

@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends((url()->previous()=='http://127.0.0.1:8000/setfruits'OR url()->previous()=='http://127.0.0.1:8000/setvegetables')?'layout.indexBack':'layout.index')
 @section('main')
 <table class="table">
     <thead>
