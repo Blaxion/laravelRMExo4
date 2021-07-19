@@ -11,9 +11,9 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('route1') }}">View1</a>
+                <a class="navbar-brand" href="/">Welcome</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -21,8 +21,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link {{request()->is('fruits')?'active':''}}" href="/fruits">Fruits</a>
-                        <a class="nav-link {{request()->is('vegetables')?'active':''}}" href="/vegetables">Vegetables</a>
+                        <a class="nav-link {{request()->is('fruitsback')?'active':''}}" href="/fruitsback">set Fruits</a>
+                        <a class="nav-link {{request()->is('vegetablesback')?'active':''}}" href="/vegetablesback">setVegetables</a>
                     </div>
                 </div>
             </div>
