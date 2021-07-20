@@ -25,6 +25,9 @@
                 </td>
             </tr>
         @endforeach
+        @if ($vegescount==0)
+                <p class="display-1 text-center">No more Veges</p>
+        @endif
     </tbody>
 </table>
 <a href="vegetables/create" class="btn btn-info text-white">CREATE</a>

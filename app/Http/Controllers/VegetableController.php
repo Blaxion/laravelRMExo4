@@ -15,12 +15,14 @@ class VegetableController extends Controller
     public function index()
     {
         $vegetables = DB::table('vegetables')->orderBy('quantity','asc')->get();
-        return view('pages.vegetables',compact('vegetables'));
+        $vegescount = DB::table('vegetables')->count();
+        return view('pages.vegetables',compact('vegetables','vegescount'));
     }
     public function indexback()
     {
         $vegetables = DB::table('vegetables')->orderBy('quantity','asc')->get();
-        return view('pages.back.vegetables',compact('vegetables'));
+        $vegescount = DB::table('vegetables')->count();
+        return view('pages.back.vegetables',compact('vegetables','vegescount'));
     }
     /**
      * Show the form for creating a new resource.

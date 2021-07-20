@@ -21,6 +21,9 @@
                     </td>
                 </tr>
             @endforeach
+            @if ($fruitscount==0)
+                <p class="display-1 text-center">No more fruits</p>
+            @endif
         </tbody>
     </table>
 @endsection

@@ -26,6 +26,9 @@
                     </td>
                 </tr>
             @endforeach
+            @if ($fruitscount==0)
+                <p class="display-1 text-center">No more fruits</p>
+            @endif
         </tbody>
     </table>
     <a href="fruits/create" class="btn btn-info text-white">CREATE</a>

@@ -16,12 +16,14 @@ class FruitController extends Controller
     public function index()
     {
         $fruits = DB::table('fruits')->orderBy('quantity','asc')->get();
-        return view('pages.fruits',compact('fruits'));
+        $fruitscount = DB::table('fruits')->count();
+        return view('pages.fruits',compact('fruits','fruitscount'));
     }
     public function indexback()
     {
         $fruits = DB::table('fruits')->orderBy('quantity','asc')->get();
-        return view('pages.back.fruits',compact('fruits'));
+        $fruitscount = DB::table('fruits')->count();
+        return view('pages.back.fruits',compact('fruits','fruitscount'));
     }
 
     /**
