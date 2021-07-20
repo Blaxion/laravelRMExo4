@@ -27,7 +27,7 @@ class FruitController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. 
      *
      * @return \Illuminate\Http\Response
      */
@@ -71,9 +71,9 @@ class FruitController extends Controller
      */
     public function edit(Fruit $fruit)
     {
-        //
+        $edit=$fruit;
+        return view('pages.back.edit.edit',compact('edit'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -82,8 +82,12 @@ class FruitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Fruit $fruit)
-    {
-        //
+    { 
+        $update = $fruit;
+        $update->name = $request->name;
+        $update->quantity = $request->quantity;
+        $update->save();
+        return redirect('/fruits/'.$update->id);
     }
 
     /**

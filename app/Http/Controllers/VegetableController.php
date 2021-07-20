@@ -25,7 +25,7 @@ class VegetableController extends Controller
         return view('pages.back.vegetables',compact('vegetables','vegescount'));
     }
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource. 
      *
      * @return \Illuminate\Http\Response
      */
@@ -69,7 +69,8 @@ class VegetableController extends Controller
      */
     public function edit(Vegetable $vegetable)
     {
-        //
+        $edit=$vegetable;
+        return view('pages.back.edit.edit',compact('edit'));
     }
 
     /**
@@ -81,7 +82,11 @@ class VegetableController extends Controller
      */
     public function update(Request $request, Vegetable $vegetable)
     {
-        //
+        $update = $vegetable;
+        $update->name = $request->name;
+        $update->quantity = $request->quantity;
+        $update->save();
+        return redirect('/vegetables/'.$update->id);
     }
 
     /**

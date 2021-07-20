@@ -17,7 +17,7 @@
                     <td>{{ $fruit->quantity }}</td>
                     <td>
                         <a href="fruits/{{$fruit->id}}" class="btn btn-info">SHOW</a>
-                        
+                        <a href="fruits/{{$fruit->id}}/edit" class="btn btn-warning">EDIT</a>
                         <form action="/fruits/{{$fruit->id}}" method="POST">
                             @csrf
                             @method('DELETE')
